@@ -23,7 +23,10 @@
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
     function buildPeter() {
-
+      return {
+      firstName: "Peter", 
+      lastName: "Pan", 
+      age: 12};
     }
 
     // 👉 CHALLENGE 2
@@ -31,8 +34,14 @@
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-
+    let userProfiles = {}
+    userProfiles.firstName = firstName
+    userProfiles.lastName = lastName
+    userProfiles.age = age
+    return userProfiles
     }
+    
+    
 
     // 👉 CHALLENGE 3
     // 🧠 The function deletePrice takes an object as its argument and deletes its "price" property if it exists.
@@ -42,8 +51,13 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
-
+    function deletePrice(obj) {
+     if (obj.price !== undefined) {
+      delete obj.price
+     } else {
+      obj.priceless = true
+     }
+    return obj
     }
 
     // 👉 CHALLENGE 4
@@ -53,7 +67,12 @@
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
     function evenList(arr) {
-
+      if (arr.length % 2 === 0) {
+        return true
+      } else if (arr.length % 2 === 1) {
+        return false
+      }
+      return arr
     }
 
     // 👉 CHALLENGE 5
@@ -62,7 +81,13 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
+    function firstOrLast(ray, lean) {
+      if (lean === true) {
+        return ray[0]
+      } else {
+        return ray[ray.length -1]
+      }
+      return firstOrLast()
 
     }
 
@@ -72,8 +97,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(arra, anyV) {
+      arra[arra.length] = anyV
+      return arra
     }
 
     // 👉 CHALLENGE 7
@@ -88,9 +114,19 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
+    function stripX(strings) {
+      let result = []
+      let stringSplit= strings.split("")
+      for (let ind in stringSplit) {
+        let char = stringSplit[ind]
+        if (char !== "x") {
+          result[result.length] = char
+        }
+      }
+    return result.join("")
 
     }
+    
 
     // 👉 CHALLENGE 8
     // 🧠 The function stripChar takes a string as its first argument and a character as its second argument.
@@ -101,8 +137,16 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
-
+    function stripChar(string, char) {
+      let splitString = string.split("")
+      let emptyArray = []
+      for (let indx in splitString) {
+        let splitChar = splitString[indx]
+        if (splitChar !== char) {
+          emptyArray[emptyArray.length] = splitChar
+        }
+      }
+      return emptyArray.join("")
     }
 
     // 👉 CHALLENGE 9
@@ -114,9 +158,15 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
-
-    }
+    function getProps(obj) {
+      let emptyObjArr = []
+      for (let index in obj) {
+        if (index !== 'age' && index !== 'married') {
+          emptyObjArr[emptyObjArr.length] = index
+        }
+      }
+      return emptyObjArr
+  }
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
